@@ -1,5 +1,5 @@
 <?php
 
-$MESS['BEX_D7DULL_MODULE_NAME'] = 'D7-образец';
-$MESS['BEX_D7DULL_MODULE_DESCRIPTION'] = 'Модуль-болванка, написанный на новом ядре Битрикса.';
-$MESS['BEX_D7DULL_MODULE_PARTNER_NAME'] = 'Битрикс-эксперты';
+$MESS['NOVIKOV_DIPLOM_MODULE_NAME'] = 'Новиков - Модуль для ВКР';
+$MESS['NOVIKOV_DIPLOM_MODULE_DESCRIPTION'] = 'Комплекс проактивной защиты для сайта.';
+$MESS['NOVIKOV_DIPLOM_MODULE_PARTNER_NAME'] = 'Усы лапы и хвост';
