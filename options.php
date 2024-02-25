@@ -41,20 +41,20 @@ if ((!empty($save) || !empty($restore)) && $request->isPost() && check_bitrix_se
     if ($request->getPost('ip_protection')) {
         $bash_script = "$bash_path/ip.sh"; 
         exec($bash_script); 
-        CAdminMessage::showMessage(array(
-            "MESSAGE" => Loc::getMessage("REFERENCES_OPTIONS_SAVED"),
-            "TYPE" => "OK",
-        ));
+        // CAdminMessage::showMessage(array(
+        //     "MESSAGE" => Loc::getMessage("REFERENCES_OPTIONS_SAVED"),
+        //     "TYPE" => "OK",
+        // ));
         exec("echo 1 > $bash_path/ip");
         
     // ОБРАБОТКА ЧЕКБОКСА ЗАЩИТЫ ОТ ЗАПРОСОВ
     }  if ($request->getPost('request_protection')) {
         $bash_script = "$bash_path/dir_protection.sh"; 
         exec($bash_script); 
-        CAdminMessage::showMessage(array(
-            "MESSAGE" => Loc::getMessage("REFERENCES_OPTIONS_SAVED"), 
-            "TYPE" => "OK",
-        ));
+        // CAdminMessage::showMessage(array(
+        //     "MESSAGE" => Loc::getMessage("REFERENCES_OPTIONS_SAVED"), 
+        //     "TYPE" => "OK",
+        // ));
         exec("echo 1 > $bash_path/dp");
 
     // ОБРАБОТКА ЧЕКБОКСА БЭКАПА
@@ -64,10 +64,10 @@ if ((!empty($save) || !empty($restore)) && $request->isPost() && check_bitrix_se
          
         CAdminMessage::ShowNote(Loc::getMessage("REFERENCES_BACKUP_INFO"));
         
-        CAdminMessage::showMessage(array(
-            "MESSAGE" => Loc::getMessage("REFERENCES_OPTIONS_SAVED"), 
-            "TYPE" => "OK",
-        ));
+        // CAdminMessage::showMessage(array(
+        //     "MESSAGE" => Loc::getMessage("REFERENCES_OPTIONS_SAVED"), 
+        //     "TYPE" => "OK",
+        // ));
         exec("echo 1 > $bash_path/bu");
         
 
@@ -84,10 +84,10 @@ if ((!empty($save) || !empty($restore)) && $request->isPost() && check_bitrix_se
             // В СКРИПТЕ БРАТЬ ЗНАЧЕНИЕ ИЗ ПЕРЕМЕННОЙ $mail
             $bash_script = "$bash_path/antivirus.sh";   // ИЗМЕНИТЬ НАЗВАНИЕ СКРИПТА 
             exec("$bash_script $mail"); 
-            CAdminMessage::showMessage(array(
-                "MESSAGE" => Loc::getMessage("REFERENCES_OPTIONS_SAVED"), 
-                "TYPE" => "OK",
-            ));
+            // CAdminMessage::showMessage(array(
+            //     "MESSAGE" => Loc::getMessage("REFERENCES_OPTIONS_SAVED"), 
+            //     "TYPE" => "OK",
+            // ));
             exec("echo 1 > $bash_path/av");
         }
 
@@ -97,6 +97,11 @@ if ((!empty($save) || !empty($restore)) && $request->isPost() && check_bitrix_se
     }  if ( ! $request->getPost('backup')) {              exec("echo 0 > $bash_path/bu"); 
     }  if ( ! $request->getPost('antivirus')) {           exec("echo 0 > $bash_path/av"); 
     }
+    CAdminMessage::showMessage(array(
+        "MESSAGE" => Loc::getMessage("REFERENCES_OPTIONS_SAVED"),
+        "TYPE" => "OK",
+    ));
+    
     //  else {         CAdminMessage::showMessage(Loc::getMessage("REFERENCES_INVALID_VALUE"));
     // }
 
